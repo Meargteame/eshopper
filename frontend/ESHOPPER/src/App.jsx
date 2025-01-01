@@ -1,29 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { Button } from 'antd';  // Importing Ant Design Button
 
 function App() {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        // Fetch products from the backend
-        axios.get('http://localhost:5000/products')
-            .then(response => setProducts(response.data))
-            .catch(error => console.error('Error fetching products:', error));
-    }, []);
-
-    return (
-        <div>
-            <h1>Simple E-commerce App</h1>
-            <ul>
-                {products.map(product => (
-                    <li key={product.id}>
-                        <h3>{product.name}</h3>
-                        <p>{product.price} USD</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>Welcome to My E-Commerce App</h1>
+      <Button type="primary">Shop Now</Button> {/* Using the Ant Design Button */}
+    </div>
+  );
 }
 
 export default App;
